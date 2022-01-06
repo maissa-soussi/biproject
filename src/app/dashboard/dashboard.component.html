@@ -373,7 +373,6 @@
         <thead>
           <tr>
             <th style="color: #125699;">#</th>
-            <th>Name</th>
             <th>Country</th>
             <th>City</th>
           </tr>
@@ -382,12 +381,11 @@
 
         <!--Table body-->
         <tbody>
-          <tr>
-            <th scope="row" style="color: #125699;">1</th>
-            <td>Kate</td>
-            <td>Moss</td>
-            <td>USA / The United Kingdom </td>
-          </tr>        
+          <tr *ngFor="let dest of destinations">
+            <th scope="row" style="color: #125699;"></th>
+            <td>{{dest.country}}</td>
+            <td>{{dest.city}}</td>
+          </tr>    
         </tbody>
         <!--Table body-->
       </table>
@@ -408,11 +406,11 @@
 
         <!--Table body-->
         <tbody>
-          <tr>
-            <th scope="row" style="color: #125699;">1</th>
-            <td>Kate</td>
-            <td>Moss</td>
-          </tr>        
+          <tr *ngFor="let air of airlines">
+            <th scope="row" style="color: #125699;"></th>
+            <td>{{air.name}}</td>
+            <td>{{air.country}}</td>
+          </tr>       
         </tbody>
         <!--Table body-->
       </table>

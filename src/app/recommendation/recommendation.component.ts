@@ -10,6 +10,7 @@ export class RecommendationComponent implements OnInit {
   public countries: any = []
   public cities: any = []
   user: any
+  country: any
   recommandation: any = []
   constructor(private http: HttpClient) { }
 
@@ -41,6 +42,11 @@ export class RecommendationComponent implements OnInit {
       (error) => {console.log(error); }
     );
     
+    
+  }
+
+  chosenCountry(t:any){
+    this.country=t.value;
     
   }
 

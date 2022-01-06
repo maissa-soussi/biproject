@@ -359,8 +359,10 @@
           <div class="form-row">
           <div class="form-group col-md-6">
                 <label for="inputcountry">Country</label>
-                <select id="inputcountry" class="form-control">
+                <select id="inputcountry" (change)="chosenCountry($event.target)" class="form-control">
                   <option selected>Choose...</option>
+                  <option value="a">a</option>
+                  <option value="b">b</option>
                   <option>...</option>
                 </select>
           </div>

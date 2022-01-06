@@ -10,7 +10,11 @@
       padding-left: 18%;
     }
     button{
-      font-size: 20px;
+      font-size: 18px;
+      
+    }
+    .table-responsive{
+      width: 50%;
     }
     form{
       min-width: 50%;
@@ -339,43 +343,86 @@
     <input type="hidden" #selection>
   
     <div class="card-container">
-      <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-        <span>New Component</span>
+      <button class="card card-small" (click)="destination()" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="28" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        <span>Top 10 Destinations</span>
       </button>
   
-      <button class="card card-small" (click)="selection.value = 'material'" tabindex="0">
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-        <span>Angular Material</span>
+      <button class="card card-small" (click)="airline()" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="28" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        <span>Top 10 Airlines</span>
       </button>
   
   
   
-      <button class="card card-small" (click)="selection.value = 'build'" tabindex="0">
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+      <button class="card card-small" (click)="recommendation()" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="28" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
         <span>Recommended For Me</span>
       </button>
   
       
   
     </div>
-  
-  
-    <!-- Links -->
-    <div class="card-container">
-      <a class="circle-link" title="Animations" href="https://angular.io/guide/animations" target="_blank" rel="noopener">
-        <svg id="Group_20" data-name="Group 20" xmlns="http://www.w3.org/2000/svg" width="21.813" height="23.453" viewBox="0 0 21.813 23.453">
-          <path id="Path_15" data-name="Path 15" d="M4099.584,972.736h0l-10.882,3.9,1.637,14.4,9.245,5.153,9.245-5.153,1.686-14.4Z" transform="translate(-4088.702 -972.736)" fill="#ffa726"/>
-          <path id="Path_16" data-name="Path 16" d="M4181.516,972.736v23.453l9.245-5.153,1.686-14.4Z" transform="translate(-4170.633 -972.736)" fill="#fb8c00"/>
-          <path id="Path_17" data-name="Path 17" d="M4137.529,1076.127l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1058.315)" fill="#ffe0b2"/>
-          <path id="Path_18" data-name="Path 18" d="M4137.529,1051.705l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1036.757)" fill="#fff3e0"/>
-          <path id="Path_19" data-name="Path 19" d="M4137.529,1027.283l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1015.199)" fill="#fff"/>
-        </svg>
-      </a>
-  
-      
+
+
+    <div class="table-responsive text-nowrap">
+      <!--Table-->
+      <!--Destinations-->
+      <table *ngIf="destinationVar==true" class="table table-striped">
+        <!--Table head-->
+        <thead>
+          <tr>
+            <th style="color: #125699;">#</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <!--Table head-->
+
+        <!--Table body-->
+        <tbody>
+          <tr>
+            <th scope="row" style="color: #125699;">1</th>
+            <td>Kate</td>
+            <td>Moss</td>
+            <td>USA / The United Kingdom </td>
+          </tr>        
+        </tbody>
+        <!--Table body-->
+      </table>
+      <!--Table-->
+      <!--Destinations-->
+
+      <!--Airlines-->
+      <table *ngIf="airlineVar==true" class="table table-striped">
+        <!--Table head-->
+        <thead>
+          <tr>
+            <th style="color: #125699;">#</th>
+            <th>Name</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <!--Table head-->
+
+        <!--Table body-->
+        <tbody>
+          <tr>
+            <th scope="row" style="color: #125699;">1</th>
+            <td>Kate</td>
+            <td>Moss</td>
+          </tr>        
+        </tbody>
+        <!--Table body-->
+      </table>
+      <!--Table-->
+      <!--Airlines-->
+
+
+
     </div>
-    
+     
   
   </div>
   

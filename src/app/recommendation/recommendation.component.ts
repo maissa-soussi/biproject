@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recommendation.component.css']
 })
 export class RecommendationComponent implements OnInit {
-
+  public countries: any = []
+  public cities: any = []
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  recommendation(){
+    
+    
   }
 
 }

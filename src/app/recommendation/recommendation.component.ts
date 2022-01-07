@@ -8,10 +8,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RecommendationComponent implements OnInit {
   public countries: any = []
+  recommVar=false
+  airline: any
   public cities: any = []
-  user: any
-  country: any
-  recommandation: any = []
+  user:any={};
+  recommandations: any = []
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -35,9 +36,12 @@ export class RecommendationComponent implements OnInit {
         )
   }
   recommendation(): void{
+    this.recommVar=true
     this.http.post("http://127.0.0.1:5000/recomm",this.user).subscribe(
       (result) => {
-        this.recommandation = result;          
+        this.recommandations = result;
+        this.airline = this.recommandations[0].airline;
+        console.log(this.recommandations[0].airline);          
       },
       (error) => {console.log(error); }
     );
@@ -46,8 +50,11 @@ export class RecommendationComponent implements OnInit {
   }
 
   chosenCountry(t:any){
-    this.country=t.value;
-    
+    this.getCity(t.value);   
+  }
+
+  test(){
+    this.recommVar=true
   }
 
 }

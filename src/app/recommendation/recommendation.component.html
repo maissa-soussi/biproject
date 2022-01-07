@@ -349,35 +349,28 @@
     <h2>Enter your Name and Address </h2>
   
     <div class="card-container">
-      <form>
+      <form method="POST" class="recommendation">
         <div class="form-row">
           <div class="form-group col-md-12">
             <label for="inputname">Name</label>
-            <input type="email" class="form-control" id="inputname">
+            <input class="form-control" type="text" name="inputname" [(ngModel)]="user.name">
           </div>
         </div>
           <div class="form-row">
           <div class="form-group col-md-6">
                 <label for="inputcountry">Country</label>
                 <select id="inputcountry" (change)="chosenCountry($event.target)" class="form-control">
-                  <option selected>Choose...</option>
-                  <option value="a">a</option>
-                  <option value="b">b</option>
-                  <option>...</option>
+                  <option *ngFor="let country of countries" value="{{country.country}}" >{{country.country}}</option> 
                 </select>
           </div>
           <div class="form-group col-md-6">
             <label for="inputcity">City</label>
-            <select id="inputcity" class="form-control">
-              <option selected>Choose...</option>
-              <option>...</option>
+            <select class="form-control" name="inputcity" [(ngModel)]="user.city">
+              <option *ngFor="let city of cities" value="{{city.city}}" >{{city.city}}</option>
+              <option value="Chicago" >Chicago</option>                                              
             </select>
-      </div>
-  
+      </div> 
         </div>
-       
-        
-        
         <div class="form-row b">
         <div class="card card-small">
         <button type="submit" (click)="recommendation()" class="btn">Search</button>
@@ -391,7 +384,7 @@
     </div>
   
     <!-- Next Steps -->
-    <svg id="pl" width="1200" height="600" viewBox="0 0 280 1600">
+    <!--<svg id="pl" width="1200" height="600" viewBox="0 0 280 1600">
         <path id="motionPath" fill="none" stroke="#000000" stroke-miterlimit="20" d="
               M 150, 100
               m -75, 0
@@ -416,9 +409,31 @@
                  rotate="auto-reverse">
           <mpath xlink:href="#motionPath" />
         </animateMotion>
-      </svg>
-    <h2>Recommended Airline</h2>
-    <p>What do you want to do next with your app?</p>
+      </svg>-->
+    <h2 *ngIf="recommVar==true">Recommended Airline</h2>
+    <p *ngIf="recommVar==true">{{airline}}</p>
+    <br><br><br>
+    <table *ngIf="recommVar==true" class="table table-striped">
+      <!--Table head-->
+      <thead>
+        <tr>
+          <th style="color: #125699;">Destinations</th>
+          <th>Country</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <!--Table head-->
+
+      <!--Table body-->
+      <tbody>
+        <tr *ngFor="let r of recommandations">
+          <th scope="row" style="color: #125699;"></th>
+          <td>{{r.country}}</td>
+          <td>{{r.city}}</td>
+        </tr>       
+      </tbody>
+      <!--Table body-->
+    </table>
   
     
   </div>
